@@ -1,42 +1,90 @@
-def password_checker(password):
-    min_length = 8
-    has_uppercase = False
-    has_lowercase = False
-    has_digit = False
-    has_special_char = False
-    special_chars = "!@#$%^&*()-_=+[{]}\|;:',<.>/?"
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
 
-    if len(password) < min_length:
-        print("Password is too short!")
-        return False
-
-    for char in password:
-        if char.isupper():
-            has_uppercase = True
-        elif char.islower():
-            has_lowercase = True
-        elif char.isdigit():
-            has_digit = True
-        elif char in special_chars:
-            has_special_char = True
-
-    if not has_uppercase:
-        print("Password must contain at least one uppercase letter!")
-        return False
-    if not has_lowercase:
-        print("Password must contain at least one lowercase letter!")
-        return False
-    if not has_digit:
-        print("Password must contain at least one digit!")
-        return False
-    if not has_special_char:
-        print("Password must contain at least one special character!")
-        return False
-
-    print("Password is strong!")
+        if n % i == 0:
+            return False
     return True
 
 
-if __name__ == "__main__":
-    password = input("Enter a password: ")
-    password_checker(password)
+def count_primes(n):
+    count = 0
+    for i in range(2, n + 1):
+        if is_prime(i):
+            count += 1
+    return count
+
+
+def find_divisors(n):
+    divisors = []
+    for i in range(1, n):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+
+
+def mean(array):
+    import numpy as np
+
+    return np.mean(array)
+
+
+def median(array):
+    import numpy as np
+
+    return np.median(array)
+
+
+def mode(array):
+    from scipy import stats
+
+    return stats.mode(array)[0][0]
+
+
+def standard_deviation(array):
+    import numpy as np
+
+    return np.std(array)
+
+
+def variance(array):
+    import numpy as np
+
+    return np.var(array)
+
+
+def covariance(array1, array2):
+    import numpy as np
+
+    return np.cov(array1, array2)[0, 1]
+
+
+def correlation(array1, array2):
+    import numpy as np
+
+    return np.corrcoef(array1, array2)[0, 1]
+
+
+def matrix_multiplication(matrix1, matrix2):
+    import numpy as np
+
+    return np.dot(matrix1, matrix2)
+
+
+def matrix_inverse(matrix):
+    import numpy as np
+
+    return np.linalg.inv(matrix)
+
+
+def determinant(matrix):
+    import numpy as np
+
+    return np.linalg.det(matrix)
+
+
+def eigenvalues_eigenvectors(matrix):
+    import numpy as np
+
+    return np.linalg.eig(matrix)
